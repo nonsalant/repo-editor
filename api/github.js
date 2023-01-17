@@ -58,19 +58,8 @@ const deleteFile = async (accessToken, username, repo, path, sha, message) => {
     return res.data;
 }
 
-export {
-    getRepo,
-    getRepoContent,
-    createFile,
-    updateFile,
-    deleteFile
-}
-
-
-///
-
-
-export const renameFile = async (accessToken, repo, path, newName) => {
+//
+const renameFile = async (accessToken, repo, path, newName) => {
     try {
         await axios.patch(`${GITHUB_API_URL}/repos/${username}/${repo}/contents/${path}`, {
             name: newName
@@ -85,3 +74,13 @@ export const renameFile = async (accessToken, repo, path, newName) => {
         return false;
     }
 };
+
+
+export {
+    getRepo,
+    getRepoContent,
+    createFile,
+    updateFile,
+    deleteFile,
+    renameFile
+}
