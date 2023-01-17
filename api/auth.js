@@ -11,7 +11,7 @@ const getUser = async (accessToken) => {
     return res.data;
 }
 
-const validateToken = async (accessToken) => {
+export const validateToken = async (accessToken) => {
     try {
         const user = await getUser(accessToken);
         if (user) {
@@ -21,10 +21,6 @@ const validateToken = async (accessToken) => {
         console.error(err);
     }
     return false;
-}
-
-export {
-    validateToken
 }
 
 ////
