@@ -4,6 +4,10 @@ import { useForm } from 'react-hook-form';
 import { authenticate } from '../api/auth';
 
 const Login = () => {
+
+    ///
+    return 'exited.'
+
     const { register, handleSubmit, errors } = useForm();
     const [error, setError] = useState('');
 
