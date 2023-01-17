@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
-import Router from 'next/router';
+// import Router from 'next/router';
+import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form';
 import { authenticate } from '../api/auth';
 
 const Login = () => {
 
     ///
-    return 'exited.'
+    // return 'exited.'
 
+    const router = useRouter();
     const { register, handleSubmit, errors } = useForm();
     const [error, setError] = useState('');
 
     const onSubmit = async (data) => {
         try {
             await authenticate(data);
-            Router.push('/repo');
+            // Router.push('/repo');
+            router.push('/repo')
         } catch (err) {
             setError(err.message);
         }
