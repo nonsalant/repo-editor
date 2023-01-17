@@ -26,3 +26,19 @@ const validateToken = async (accessToken) => {
 export {
     validateToken
 }
+
+////
+
+export const authenticate = async (accessToken) => {
+    try {
+        const { data } = await axios.get('https://api.github.com/user', {
+            headers: {
+                Authorization: `Token ${accessToken}`
+            }
+        });
+        return data;
+    } catch (err) {
+        console.error(err);
+        return null;
+    }
+};

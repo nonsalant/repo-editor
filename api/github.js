@@ -65,3 +65,23 @@ export {
     updateFile,
     deleteFile
 }
+
+
+///
+
+
+export const renameFile = async (access_token, repo, path, newName) => {
+    try {
+        await axios.patch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+            name: newName
+        }, {
+            headers: {
+                Authorization: `Token ${access_token}`
+            }
+        });
+        return true;
+    } catch (err) {
+        console.error(err);
+        return false;
+    }
+};
