@@ -70,13 +70,13 @@ export {
 ///
 
 
-export const renameFile = async (access_token, repo, path, newName) => {
+export const renameFile = async (accessToken, repo, path, newName) => {
     try {
-        await axios.patch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+        await axios.patch(`${GITHUB_API_URL}/repos/${username}/${repo}/contents/${path}`, {
             name: newName
         }, {
             headers: {
-                Authorization: `Token ${access_token}`
+                Authorization: `Token ${accessToken}`
             }
         });
         return true;
